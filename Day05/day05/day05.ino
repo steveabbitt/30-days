@@ -5,7 +5,7 @@ int LED3 = 11;
 int LED4 = 10;
 int LED5 = 9;
 int LED6 = 8;
-//pins 2-4 are to be switch inputs
+//pins 2-4 are switch inputs
 int SW1 = 2;
 int SW2 = 3;
 int SW3 = 4;
