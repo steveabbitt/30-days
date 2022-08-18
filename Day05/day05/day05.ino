@@ -1,11 +1,12 @@
-
-int LED1 = 13; //pins 8-13 are to be LED outputs
+ //pins 8-13 are LED outputs
+int LED1 = 13;
 int LED2 = 12;
 int LED3 = 11;
 int LED4 = 10;
 int LED5 = 9;
 int LED6 = 8;
-int SW1 = 2; //pins 2-4 are to be switch inputs
+//pins 2-4 are to be switch inputs
+int SW1 = 2;
 int SW2 = 3;
 int SW3 = 4;
 
@@ -20,12 +21,13 @@ pinMode(LED6, OUTPUT);
 pinMode(SW1, INPUT);
 pinMode(SW2, INPUT);
 pinMode(SW3, INPUT);
+//setup random seed https://www.arduino.cc/reference/en/language/functions/random-numbers/random/
 randomSeed(analogRead(0));
 }
 
 void loop() {
 
-//SW1
+//SW1 - single rotating clockwise
   if (digitalRead(SW1) == HIGH && digitalRead(SW2) == LOW && digitalRead(SW3) == LOW){
     digitalWrite(LED1, HIGH);
     delay(100);
@@ -46,7 +48,7 @@ void loop() {
     delay(100);
     digitalWrite(LED6, LOW);
   }
-//SW1,SW3
+//SW1, SW3 single rotating counter-clockwise
   if (digitalRead(SW1) == HIGH && digitalRead(SW2) == LOW && digitalRead(SW3) == HIGH){
     digitalWrite(LED6, HIGH);
     delay(100);
@@ -67,7 +69,7 @@ void loop() {
     delay(100);
     digitalWrite(LED1, LOW);
   }
-//SW2
+//SW2 double rotating clockwise
   if (digitalRead(SW1) == LOW && digitalRead(SW2) == HIGH && digitalRead(SW3) == LOW){
     digitalWrite(LED1, HIGH);
     digitalWrite(LED4, HIGH);
@@ -85,7 +87,7 @@ void loop() {
     digitalWrite(LED3, LOW);
     digitalWrite(LED6, LOW);
   }
-//SW2,SW3
+//SW2,SW3 double rotating counter-clockwise
   if (digitalRead(SW1) == LOW && digitalRead(SW2) == HIGH && digitalRead(SW3) == HIGH){
     digitalWrite(LED3, HIGH);
     digitalWrite(LED6, HIGH);
@@ -103,7 +105,7 @@ void loop() {
     digitalWrite(LED1, LOW);
     digitalWrite(LED4, LOW);
   }
-//SW1,SW2
+//SW1,SW2 triple rotating
   if (digitalRead(SW1) == HIGH && digitalRead(SW2) == HIGH && digitalRead(SW3) == LOW){
     digitalWrite(LED1, HIGH);
     digitalWrite(LED3, HIGH);
@@ -120,7 +122,7 @@ void loop() {
     digitalWrite(LED4, LOW);
     digitalWrite(LED6, LOW);
   }
-//SW1,SW2,SW3
+//SW1,SW2,SW3 single off rotating clockwise
   if (digitalRead(SW1) == HIGH && digitalRead(SW2) == HIGH && digitalRead(SW3) == HIGH){
     digitalWrite(LED1, LOW);
     digitalWrite(LED2, HIGH);
@@ -146,14 +148,14 @@ void loop() {
     delay(100);
     digitalWrite(LED6, HIGH);
   }
-//SW3
+//SW3 random madness
   if (digitalRead(SW1) == LOW && digitalRead(SW2) == LOW && digitalRead(SW3) == HIGH){
     int LEDR = random(8, 14);
     digitalWrite(LEDR, HIGH);
     delay(50);
     digitalWrite(LEDR, LOW);
   }
-//Default
+//Default nada
   else {
     digitalWrite(LED1, LOW);
     digitalWrite(LED2, LOW);
